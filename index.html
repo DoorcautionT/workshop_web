@@ -2279,6 +2279,37 @@
       border-color: #8cbdaa;
     }
   </style>
+
+  <style id="workshop-partner-logo-styles">
+    .workshop-partners { padding: 34px 0; border-top: 1px solid #dce2e3; background: #fff; }
+    .workshop-partner-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:24px; }
+    .workshop-partner-title { margin:0; color:#647780; font-size:15px; font-weight:500; line-height:1.6; }
+    .partner-motion-button { padding:8px 13px; border:1px solid #dce2e3; border-radius:20px; background:#fff; color:#102d46; font:inherit; font-size:13px; cursor:pointer; white-space:nowrap; }
+    .partner-motion-button:hover { background:#f1f4f6; border-color:#aebbc4; }
+    .partner-motion-button:focus-visible { outline:3px solid #476b8b; outline-offset:4px; }
+    .partner-marquee { overflow:hidden; mask-image:linear-gradient(to right,transparent,#000 24px,#000 calc(100% - 24px),transparent); }
+    .partner-marquee-track { display:flex; width:max-content; animation:partner-logo-scroll 38s linear infinite; }
+    .partner-marquee-group { display:flex; flex:none; align-items:center; gap:48px; padding:8px 48px 8px 0; }
+    .partner-marquee-group img { display:block; flex:none; width:280px; height:96px; object-fit:contain; object-position:center; }
+    .partner-marquee-group .partner-certara { width:190px; height:100px; }
+    .partner-marquee:hover .partner-marquee-track,
+    .workshop-partners.is-paused .partner-marquee-track { animation-play-state:paused; }
+    @keyframes partner-logo-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    @media (max-width:680px) {
+      .workshop-partners { padding:28px 0; }
+      .workshop-partner-heading { margin-bottom:18px; }
+      .partner-marquee-group { gap:32px; padding-right:32px; }
+      .partner-marquee-group img { width:230px; height:82px; }
+      .partner-marquee-group .partner-certara { width:160px; height:86px; }
+    }
+    @media (prefers-reduced-motion:reduce), print {
+      .partner-marquee { overflow:visible; mask-image:none; }
+      .partner-marquee-track { width:100%; animation:none; }
+      .partner-marquee-group { width:100%; flex-wrap:wrap; justify-content:center; gap:28px; padding:0; }
+      .partner-marquee-group img { max-width:100%; }
+      .partner-marquee-group[aria-hidden="true"], .partner-motion-button { display:none; }
+    }
+  </style>
 </head>
 
 <body>
@@ -2708,26 +2739,28 @@
           </div>
         </div>
       </section>
-      <section class="partners">
+      <section class="workshop-partners" aria-label="Associated institutions and programs">
         <div class="wrap">
-          <h2 class="partner-title">Associated institutions and programs</h2>
-
-          <div class="partner-grid">
-            <div class="partner-item">
-              <img src="./static/logo/pharmacy.png" alt="CNU Institute for Pharmacy Education and Training"
-                class="partner-logo" />
-            </div>
-
-            <div class="partner-item">
-              <img src="./static/logo/glocal.png" alt="Glocal Lab" class="partner-logo" />
-            </div>
-
-            <div class="partner-item" style="background-color: #0a2237;">
-              <img src="./static/logo/logo2.svg" alt="CRC" class="partner-logo" />
-            </div>
-
-            <div class="partner-item">
-              <img src="./static/logo/gov1.svg" alt="Ministry of Food and Drug Safety (MFDS)" class="partner-logo" />
+          <div class="workshop-partner-heading">
+            <h2 class="workshop-partner-title">Associated institutions and programs</h2>
+            <button type="button" class="partner-motion-button" data-logo-toggle data-pause-label="Pause" data-play-label="Play" aria-pressed="false">Pause</button>
+          </div>
+          <div class="partner-marquee">
+            <div class="partner-marquee-track">
+              <div class="partner-marquee-group">
+                <img src="./static/logo/01_CNU_College_of_Pharmacy.png" alt="Chungnam National University College of Pharmacy" loading="eager" decoding="async" />
+                <img class="partner-certara" src="./static/logo/02_Certara_Korea.png" alt="Certara Korea" loading="eager" decoding="async" />
+                <img src="./static/logo/03_CNU_Glocal_Lab_Consortium_EN.png" alt="Chungnam National University Glocal Lab Consortium" loading="eager" decoding="async" />
+                <img src="./static/logo/04_MFDS_NAMs_QSP_Research_Team.png" alt="Ministry of Food and Drug Safety NAMs-QSP Research Team" loading="eager" decoding="async" />
+                <img src="./static/logo/05_CNU_Senior_Health_Research_Center.png" alt="Chungnam National University Lifecycle-Based Senior Health Convergence Research Center" loading="eager" decoding="async" />
+              </div>
+              <div class="partner-marquee-group" aria-hidden="true">
+                <img src="./static/logo/01_CNU_College_of_Pharmacy.png" alt="" loading="eager" decoding="async" />
+                <img class="partner-certara" src="./static/logo/02_Certara_Korea.png" alt="" loading="eager" decoding="async" />
+                <img src="./static/logo/03_CNU_Glocal_Lab_Consortium_EN.png" alt="" loading="eager" decoding="async" />
+                <img src="./static/logo/04_MFDS_NAMs_QSP_Research_Team.png" alt="" loading="eager" decoding="async" />
+                <img src="./static/logo/05_CNU_Senior_Health_Research_Center.png" alt="" loading="eager" decoding="async" />
+              </div>
             </div>
           </div>
         </div>
@@ -3166,26 +3199,28 @@
           </div>
         </div>
       </section>
-      <section class="partners">
+      <section class="workshop-partners" aria-label="Associated institutions and programs">
         <div class="wrap">
-          <h2 class="partner-title">Associated institutions and programs</h2>
-
-          <div class="partner-grid">
-            <div class="partner-item">
-              <img src="./static/logo/pharmacy.png" alt="CNU Institute for Pharmacy Education and Training"
-                class="partner-logo" />
-            </div>
-
-            <div class="partner-item">
-              <img src="./static/logo/glocal.png" alt="Glocal Lab" class="partner-logo" />
-            </div>
-
-            <div class="partner-item" style="background-color: #0a2237;">
-              <img src="./static/logo/logo2.svg" alt="CRC" class="partner-logo" />
-            </div>
-
-            <div class="partner-item">
-              <img src="./static/logo/gov1.svg" alt="Ministry of Food and Drug Safety (MFDS)" class="partner-logo" />
+          <div class="workshop-partner-heading">
+            <h2 class="workshop-partner-title">Associated institutions and programs</h2>
+            <button type="button" class="partner-motion-button" data-logo-toggle data-pause-label="Pause" data-play-label="Play" aria-pressed="false">Pause</button>
+          </div>
+          <div class="partner-marquee">
+            <div class="partner-marquee-track">
+              <div class="partner-marquee-group">
+                <img src="./static/logo/01_CNU_College_of_Pharmacy.png" alt="Chungnam National University College of Pharmacy" loading="eager" decoding="async" />
+                <img class="partner-certara" src="./static/logo/02_Certara_Korea.png" alt="Certara Korea" loading="eager" decoding="async" />
+                <img src="./static/logo/03_CNU_Glocal_Lab_Consortium_EN.png" alt="Chungnam National University Glocal Lab Consortium" loading="eager" decoding="async" />
+                <img src="./static/logo/04_MFDS_NAMs_QSP_Research_Team.png" alt="Ministry of Food and Drug Safety NAMs-QSP Research Team" loading="eager" decoding="async" />
+                <img src="./static/logo/05_CNU_Senior_Health_Research_Center.png" alt="Chungnam National University Lifecycle-Based Senior Health Convergence Research Center" loading="eager" decoding="async" />
+              </div>
+              <div class="partner-marquee-group" aria-hidden="true">
+                <img src="./static/logo/01_CNU_College_of_Pharmacy.png" alt="" loading="eager" decoding="async" />
+                <img class="partner-certara" src="./static/logo/02_Certara_Korea.png" alt="" loading="eager" decoding="async" />
+                <img src="./static/logo/03_CNU_Glocal_Lab_Consortium_EN.png" alt="" loading="eager" decoding="async" />
+                <img src="./static/logo/04_MFDS_NAMs_QSP_Research_Team.png" alt="" loading="eager" decoding="async" />
+                <img src="./static/logo/05_CNU_Senior_Health_Research_Center.png" alt="" loading="eager" decoding="async" />
+              </div>
             </div>
           </div>
         </div>
@@ -3601,25 +3636,28 @@
           </div>
         </div>
       </section>
-      <section class="partners">
+      <section class="workshop-partners" aria-label="연계 기관 및 사업">
         <div class="wrap">
-          <h2 class="partner-title">연계 기관 및 사업</h2>
-
-          <div class="partner-grid">
-            <div class="partner-item">
-              <img src="./static/logo/pharmacy.png" alt="충남대학교 약학교육연수원" class="partner-logo" />
-            </div>
-
-            <div class="partner-item">
-              <img src="./static/logo/glocal.png" alt="글로컬랩" class="partner-logo" />
-            </div>
-
-            <div class="partner-item" style="background-color: #0a2237;">
-              <img src="./static/logo/logo2.svg" alt="CRC" class="partner-logo" />
-            </div>
-
-            <div class="partner-item">
-              <img src="./static/logo/gov1.svg" alt="식약처" class="partner-logo" />
+          <div class="workshop-partner-heading">
+            <h2 class="workshop-partner-title">연계 기관 및 사업</h2>
+            <button type="button" class="partner-motion-button" data-logo-toggle data-pause-label="일시정지" data-play-label="재생" aria-pressed="false">일시정지</button>
+          </div>
+          <div class="partner-marquee">
+            <div class="partner-marquee-track">
+              <div class="partner-marquee-group">
+                <img src="./static/logo/01_CNU_College_of_Pharmacy.png" alt="충남대학교 약학대학" loading="eager" decoding="async" />
+                <img class="partner-certara" src="./static/logo/02_Certara_Korea.png" alt="Certara Korea" loading="eager" decoding="async" />
+                <img src="./static/logo/03_CNU_Glocal_Lab_Consortium_EN.png" alt="충남대학교 글로컬랩 컨소시엄" loading="eager" decoding="async" />
+                <img src="./static/logo/04_MFDS_NAMs_QSP_Research_Team.png" alt="식품의약품안전처 NAMs-QSP 연구팀" loading="eager" decoding="async" />
+                <img src="./static/logo/05_CNU_Senior_Health_Research_Center.png" alt="충남대학교 라이프사이클 기반 시니어헬스 융합연구센터" loading="eager" decoding="async" />
+              </div>
+              <div class="partner-marquee-group" aria-hidden="true">
+                <img src="./static/logo/01_CNU_College_of_Pharmacy.png" alt="" loading="eager" decoding="async" />
+                <img class="partner-certara" src="./static/logo/02_Certara_Korea.png" alt="" loading="eager" decoding="async" />
+                <img src="./static/logo/03_CNU_Glocal_Lab_Consortium_EN.png" alt="" loading="eager" decoding="async" />
+                <img src="./static/logo/04_MFDS_NAMs_QSP_Research_Team.png" alt="" loading="eager" decoding="async" />
+                <img src="./static/logo/05_CNU_Senior_Health_Research_Center.png" alt="" loading="eager" decoding="async" />
+              </div>
             </div>
           </div>
         </div>
@@ -3864,6 +3902,17 @@
       )
         return;
       window.open('https://forms.gle/U3CzPgnX1jPX4NkA9', '_blank', 'noopener,noreferrer');
+    });
+  </script>
+
+  <script id="partner-logo-animation-controls">
+    document.addEventListener('click', function (event) {
+      const button = event.target.closest('[data-logo-toggle]');
+      if (!button) return;
+      const section = button.closest('.workshop-partners');
+      const paused = section.classList.toggle('is-paused');
+      button.setAttribute('aria-pressed', String(paused));
+      button.textContent = paused ? button.dataset.playLabel : button.dataset.pauseLabel;
     });
   </script>
 </body>

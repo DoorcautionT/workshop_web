@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CNU–Certara RsNLME Workshop 2027</title>
   <meta name="description"
-    content="February 22–23, 2027. A two-day hands-on workshop on population PK/PD modeling and the R workflow for RsNLME." />
+    content="February 22–23, 2027. A two-day hands-on workshop on population PK modeling and the R workflow for RsNLME." />
   <style>
     /* CNU × Certara Workshop 2027
  * 기존 미디어 쿼리 순서를 유지한 정리본.
@@ -2310,6 +2310,95 @@
       .partner-marquee-group[aria-hidden="true"], .partner-motion-button { display:none; }
     }
   </style>
+  <style id="workshop-program-update-styles">
+    .agenda-timetable li { align-items:flex-start; }
+    .agenda-timetable li > span { flex:0 0 100px; white-space:nowrap; padding-top:3px; }
+    .agenda-timetable .agenda-break b { color:#67747d; font-weight:400; }
+    .workshop-preparation p strong { color:#102d46; }
+    .workshop-preparation p { margin-top:18px; }
+    @media (max-width:680px) {
+      .agenda-timetable li { gap:14px; }
+      .agenda-timetable li > span { flex-basis:88px; font-size:12px; }
+    }
+  </style>
+
+  <style id="mobile-header-controls">
+    .header-menu-icon { display:none; }
+    @media (max-width:680px) {
+      .masthead .nav {
+        position:relative;
+        display:grid;
+        grid-template-columns:minmax(0,1fr) 44px 44px;
+        align-items:center;
+        gap:8px;
+        min-height:80px;
+        padding:12px 0;
+      }
+      .masthead .wordmark { min-width:0; font-size:20px; white-space:nowrap; }
+      .masthead .wordmark span { margin:0 5px; }
+      .masthead .wordmark small { font-size:9px; letter-spacing:1px; }
+      .masthead .language-picker { order:2; margin:0; }
+      .masthead .menu-button { order:3; }
+      .masthead .menu-button,
+      .masthead .language-button {
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:44px;
+        height:44px;
+        min-height:44px;
+        margin:0;
+        padding:0;
+        border:1px solid #d7dfe6;
+        border-radius:12px;
+        background:#f6f8fa;
+        color:#102d46;
+        cursor:pointer;
+        box-shadow:none;
+        transition:background .15s ease,border-color .15s ease;
+      }
+      .masthead .menu-button:hover,
+      .masthead .language-button:hover,
+      .masthead button[aria-expanded="true"] { background:#eaf0f5; border-color:#9dafbf; }
+      .masthead .menu-button:focus-visible,
+      .masthead .language-button:focus-visible { outline:2px solid #365d80; outline-offset:3px; }
+      .masthead .header-control-label { display:none; }
+      .masthead .language-button svg { display:block; width:20px; height:20px; }
+      .header-menu-icon { display:block; position:relative; width:18px; height:18px; }
+      .header-menu-icon::before,
+      .header-menu-icon::after { content:""; position:absolute; left:0; width:18px; height:1.6px; border-radius:2px; background:currentColor; }
+      .header-menu-icon::before { top:5px; }
+      .header-menu-icon::after { top:11px; }
+      .menu-button[aria-expanded="true"] .header-menu-icon::before { top:8px; transform:rotate(45deg); }
+      .menu-button[aria-expanded="true"] .header-menu-icon::after { top:8px; transform:rotate(-45deg); }
+      .masthead .navlinks {
+        position:absolute;
+        top:calc(100% + 8px);
+        left:0;
+        right:0;
+        width:auto;
+        margin:0;
+        padding:10px;
+        gap:2px;
+        border:1px solid #d7dfe6;
+        border-radius:14px;
+        background:#fff;
+        box-shadow:0 12px 28px #102d4614;
+      }
+      .masthead .navlinks a { display:block; padding:13px 14px; border-radius:8px; font-size:15px; }
+      .masthead .navlinks a:hover { color:#102d46; background:#eef2f6; }
+      .masthead .language-options { top:calc(100% + 12px); min-width:176px; padding:6px; border:1px solid #d7dfe6; border-radius:14px; box-shadow:0 12px 28px #102d4614; }
+      .masthead .language-options a { border-radius:8px; }
+      .masthead .language-options a:hover,
+      .masthead .language-options a:focus-visible,
+      .masthead .language-options a[aria-current="page"] { background:#eef2f6; }
+      .masthead .language-options a[aria-current="page"]::after { color:#365d80; }
+    }
+    @media (max-width:360px) {
+      .masthead .wordmark { font-size:18px; }
+      .masthead .wordmark small { font-size:8px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -2319,7 +2408,7 @@
         <a class="wordmark" href="#top" aria-label="CNU Certara workshop home">
           CNU<span>×</span>Certara
           <small>Workshop 2027</small>
-        </a>
+        </a><button type="button" class="menu-button" aria-expanded="false" aria-controls="navigation" aria-label="Open menu" title="Menu"><span class="header-menu-icon" aria-hidden="true"></span><span class="header-control-label">Menu</span></button>
 
         <nav class="navlinks" id="navigation" aria-label="Main navigation">
           <a href="#overview">Overview</a>
@@ -2335,7 +2424,7 @@
               <ellipse cx="12" cy="12" rx="4" ry="9" />
               <path d="M3 12h18" />
             </svg>
-            Language</button>
+            <span class="header-control-label">Language</span></button>
           <div class="language-options" id="language-options" hidden><a href="?lang=en" data-language="en"
               lang="en">English</a><a href="?lang=ko" data-language="ko" lang="ko">한국어</a>
           </div>
@@ -2357,7 +2446,7 @@
             </div>
             <h1><strong>RsNLME<br />Workshop <span>2027</span></strong>
             </h1>
-            <p class="hero-subtitle"><strong>R</strong> workflow for<br />population PK/PD modeling
+            <p class="hero-subtitle"><strong>R</strong> workflow for<br />population PK modeling
             </p>
             <div class="hero-meta"><b>February 22–23, 2027</b><span class="bar"></span><span>Hands-on learning</span>
             </div>
@@ -2421,13 +2510,13 @@
           <div class="fact"><small>DATES</small><strong>February 22–23, 2027</strong>
             <p>Monday &amp; Tuesday </p>
           </div>
-          <div class="fact"><small>FOCUS</small><strong>Population PK/PD · RsNLME</strong>
+          <div class="fact"><small>FOCUS</small><strong>Population PK · RsNLME</strong>
             <p>R workflow and hands-on exercises </p>
           </div>
           <div class="fact">
             <small>CAPACITY</small>
             <strong>50 participants</strong>
-            <p>Researchers and students worldwide interested in population PK/PD modeling</p>
+            <p>Researchers and students worldwide interested in population PK modeling</p>
           </div>
         </div>
       </section>
@@ -2437,8 +2526,7 @@
           <h2>Build models.<br />Deepen your understanding. </h2>
           <br />
           <p><strong>CNU–Certara RsNLME Workshop</strong> is a hands-on training program.
-            <br />The program progresses from setting up and running nonlinear mixed-effects
-            (NLME) models in R to model evaluation, simulation and advanced PK/PD modeling.
+            <br />The program introduces population pharmacokinetics using RsNLME, covering residual error, structural and covariate models, followed by model evaluation and interpretation.
           </p>
         </div>
         <div>
@@ -2465,22 +2553,21 @@
             </div>
 
             <div class="intro-slide" hidden>
-              <img src="./static/figures/simulation.gif" alt="Illustrative simulation results" style="padding: 5%;" />
+              <img src="./static/figures/simulation.gif" alt="Illustrative concentration-time profiles" style="padding: 5%;" />
               <div class="intro-slide-caption">
                 <span>03 / 04</span>
-                <h3>Simulation</h3>
-                <p>Predict drug concentrations and responses under different conditions.</p>
+                <h3>Structural models</h3>
+                <p>Explore concentration-time profiles with one- and two-compartment models.</p>
               </div>
             </div>
 
             <div class="intro-slide" hidden>
-              <img src="./static/figures/population-pkpd.gif" alt="Illustrative population PK/PD modeling"
+              <img src="./static/figures/population-pkpd.gif" alt="Illustrative population PK modeling"
                 style="padding: 5%;" />
               <div class="intro-slide-caption">
                 <span>04 / 04</span>
-                <h3>Population PK/PD modeling</h3>
-                <p>Analyze drug concentrations and responses and explore variability between
-                  individuals.</p>
+                <h3>Population PK modeling</h3>
+                <p>Understand drug concentration-time profiles and variability between individuals.</p>
               </div>
             </div>
 
@@ -2489,9 +2576,9 @@
               <button type="button" data-slide="1" aria-pressed="false">
                 Model evaluation
               </button>
-              <button type="button" data-slide="2" aria-pressed="false"> Simulation </button>
+              <button type="button" data-slide="2" aria-pressed="false">Structural models</button>
               <button type="button" data-slide="3" aria-pressed="false">
-                Population PK/PD modeling
+                Population PK modeling
               </button>
             </div>
           </div>
@@ -2500,62 +2587,47 @@
       <section id="program" class="section program">
         <div class="wrap">
           <div class="section-title">
-            <div>
-              <p class="eyebrow">WORKSHOP PROGRAM</p>
-              <h2>From foundations to application. </h2>
-            </div>
-            <div class="program-top">
-              <div class="day-switch" role="tablist" aria-label="Workshop days"><button id="tab1" role="tab"
-                  aria-selected="true" aria-controls="day1" tabindex="0">Day 1</button><button id="tab2" role="tab"
-                  aria-selected="false" aria-controls="day2" tabindex="-1">Day 2</button>
-              </div>
+            <div><p class="eyebrow">WORKSHOP PROGRAM</p><h2>An introduction to population pharmacokinetics using RsNLME</h2></div>
+            <div class="day-switch" role="tablist" aria-label="Workshop days">
+              <button id="tab1" role="tab" aria-selected="true" aria-controls="day1" tabindex="0">Day 1</button>
+              <button id="tab2" role="tab" aria-selected="false" aria-controls="day2" tabindex="-1">Day 2</button>
             </div>
           </div>
           <div class="day-panel" id="day1" role="tabpanel" aria-labelledby="tab1" tabindex="0">
             <div class="agenda">
               <div class="agenda-intro"><span class="day-label">DAY 1 / MONDAY</span>
-                <div class="date-number">22 </div>
-                <div class="month">February 2027 </div>
-                <h3>Introduction to RsNLME </h3>
-                <p>Learn the fundamentals of RsNLME and its R workflow through hands-on modeling
-                  exercises.
-                </p>
+                <div class="date-number">22</div><div class="month">February 2027 · 09:00-17:00</div>
+                <h3>Population PK &amp; structural models</h3><p>Learn population methods, residual error and structural models, then build one- and two-compartment models.</p>
               </div>
-              <ol class="agenda-list">
-                <li><span>01</span><b>RsNLME overview and hands-on exercises</b> </li>
-                <li><span>02</span><b>Setting up and running NLME models in R</b> </li>
-                <li><span>03</span><b>Standard population pharmacokinetic (PK) models</b> </li>
-                <li><span>04</span><b>Handling below-the-limit-of-quantification (BLQ) data</b>
-                </li>
-                <li><span>05</span><b>Summarizing model results</b> </li>
-                <li><span>06</span><b>Model evaluation plots</b> </li>
-                <li><span>07</span><b>Visual predictive checks (VPCs)</b> </li>
+              <ol class="agenda-list agenda-timetable">
+                <li><span>09:00-10:00</span><b>Lecture 1: Introduction to population methods</b></li>
+                <li class="agenda-break"><span>10:00-10:30</span><b>Break</b></li>
+                <li><span>10:30-12:00</span><b>Hands-on 1: Residual error models</b></li>
+                <li class="agenda-break"><span>12:00-13:00</span><b>Lunch</b></li>
+                <li><span>13:00-15:00</span><b>Lecture 2: Building structural models</b></li>
+                <li class="agenda-break"><span>15:00-15:30</span><b>Break</b></li>
+                <li><span>15:30-17:00</span><b>Hands-on 2: One- and two-compartment models with first-order absorption or infusion</b></li>
               </ol>
             </div>
           </div>
           <div class="day-panel" id="day2" role="tabpanel" aria-labelledby="tab2" tabindex="0" hidden>
             <div class="agenda">
               <div class="agenda-intro"><span class="day-label">DAY 2 / TUESDAY</span>
-                <div class="date-number">23 </div>
-                <div class="month">February 2027 </div>
-                <h3>RsNLME <br />Advanced Workflow </h3>
-                <p>Extend your skills in the RsNLME R workflow through further exercises in
-                  modeling and analysis.
-                </p>
+                <div class="date-number">23</div><div class="month">February 2027 · 09:00-17:00</div>
+                <h3>Covariate models &amp; evaluation</h3><p>Build covariate models and evaluate results using parameter summaries, diagnostic plots and VPCs.</p>
               </div>
-              <ol class="agenda-list">
-                <li><span>01</span><b>Advanced exercises in the RsNLME R workflow</b> </li>
-                <li><span>02</span><b>Standard population PK/PD models</b> </li>
-                <li><span>03</span><b>Multiple-response models</b> </li>
-                <li><span>04</span><b>Simulation</b> </li>
-                <li><span>05</span><b>Bootstrap</b> </li>
-                <li><span>06</span><b>Stepwise covariate modeling (SCM)</b> </li>
+              <ol class="agenda-list agenda-timetable">
+                <li><span>09:00-10:00</span><b>Lecture 3: Building covariate models</b></li>
+                <li class="agenda-break"><span>10:00-10:30</span><b>Break</b></li>
+                <li><span>10:30-12:00</span><b>Hands-on 3: Covariate models</b></li>
+                <li class="agenda-break"><span>12:00-13:00</span><b>Lunch</b></li>
+                <li><span>13:00-15:00</span><b>Lecture 4: Model evaluation (diagnostic plots and VPCs)</b></li>
+                <li class="agenda-break"><span>15:00-15:30</span><b>Break</b></li>
+                <li><span>15:30-17:00</span><b>Hands-on 4: Parameter summary tables, diagnostic plots and VPCs</b></li>
               </ol>
             </div>
           </div>
-          <p class="program-note">The program and arrangements are subject to change. Detailed session times will be
-            announced later.
-          </p>
+          <p class="program-note">The program and arrangements are subject to change.</p>
         </div>
       </section>
       <section id="speakers" class="wrap section">
@@ -2675,14 +2747,13 @@
                   rel="noopener noreferrer">Official CNU parking information (Korean)</a>
               </div>
             </details>
-            <details>
-              <summary><strong>What to bring</strong> </summary>
-              <p>Please bring your own laptop with R and RStudio installed.<br />Practice
-                datasets, code and installation instructions will be provided later.</p>
-              <p><strong><a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">Install R</a>
-                  &nbsp; | &nbsp;
-                  <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener noreferrer">Install
-                    RStudio</a></strong></p>
+            <details open class="workshop-preparation"><summary><strong>Pre-workshop preparation</strong></summary>
+              <p><strong>Laptop and R</strong><br>Bring your own laptop with R installed. R 4.5.1 or later is recommended; earlier versions may not render all outputs as expected.</p>
+              <p><strong>Development environment</strong><br>You may use RStudio, Positron or basic RGui, according to your preference.</p>
+              <p><strong>Installation and test run</strong><br>An R script will be provided to install the required packages and dependencies. Check your RsNLME installation by completing the test run in the installation materials.</p>
+              <p><strong>Operating system</strong><br>RsNLME does not run on macOS, including when using a Windows emulator on macOS.</p>
+              <p><strong>Prior knowledge</strong><br>No prior experience with RsNLME or population methods is required. A working understanding of pharmacokinetics is desirable.</p>
+              <p><strong><a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">Install R</a> &nbsp; | &nbsp; <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener noreferrer">Install RStudio</a></strong></p>
             </details>
           </div>
         </div>
@@ -2782,8 +2853,7 @@
   <template id="content-en">
     <header class="masthead">
       <div class="wrap nav"><a class="wordmark" href="#top"
-          aria-label="CNU Certara workshop home">CNU<span>×</span>Certara<small>WORKSHOP 2027</small></a><button
-          class="menu-button" aria-expanded="false" aria-controls="navigation">Menu +</button>
+          aria-label="CNU Certara workshop home">CNU<span>×</span>Certara<small>WORKSHOP 2027</small></a><button type="button" class="menu-button" aria-expanded="false" aria-controls="navigation" aria-label="Open menu" title="Menu"><span class="header-menu-icon" aria-hidden="true"></span><span class="header-control-label">Menu</span></button>
         <nav class="navlinks" id="navigation" aria-label="Main navigation"><a href="#overview">Overview</a><a
             href="#program">Program</a><a href="#speakers">Faculty</a><a href="#participation">Participation</a><a
             href="#contact">Contact</a>
@@ -2795,7 +2865,7 @@
               <ellipse cx="12" cy="12" rx="4" ry="9" />
               <path d="M3 12h18" />
             </svg>
-            Language</button>
+            <span class="header-control-label">Language</span></button>
           <div class="language-options" id="language-options" hidden><a href="?lang=en" data-language="en"
               lang="en">English</a><a href="?lang=ko" data-language="ko" lang="ko">한국어</a>
           </div>
@@ -2817,7 +2887,7 @@
             </div>
             <h1><strong>RsNLME<br />Workshop <span>2027</span></strong>
             </h1>
-            <p class="hero-subtitle"><strong>R</strong> workflow for<br />population PK/PD modeling
+            <p class="hero-subtitle"><strong>R</strong> workflow for<br />population PK modeling
             </p>
             <div class="hero-meta"><b>February 22–23, 2027</b><span class="bar"></span><span>Hands-on learning</span>
             </div>
@@ -2881,13 +2951,13 @@
           <div class="fact"><small>DATES</small><strong>February 22–23, 2027</strong>
             <p>Monday &amp; Tuesday </p>
           </div>
-          <div class="fact"><small>FOCUS</small><strong>Population PK/PD · RsNLME</strong>
+          <div class="fact"><small>FOCUS</small><strong>Population PK · RsNLME</strong>
             <p>R workflow and hands-on exercises </p>
           </div>
           <div class="fact">
             <small>CAPACITY</small>
             <strong>50 participants</strong>
-            <p>Researchers and students worldwide interested in population PK/PD modeling</p>
+            <p>Researchers and students worldwide interested in population PK modeling</p>
           </div>
         </div>
       </section>
@@ -2897,8 +2967,7 @@
           <h2>Build models.<br />Deepen your understanding. </h2>
           <br />
           <p><strong>CNU–Certara RsNLME Workshop</strong> is a hands-on training program.
-            <br />The program progresses from setting up and running nonlinear mixed-effects
-            (NLME) models in R to model evaluation, simulation and advanced PK/PD modeling.
+            <br />The program introduces population pharmacokinetics using RsNLME, covering residual error, structural and covariate models, followed by model evaluation and interpretation.
           </p>
         </div>
         <div>
@@ -2925,22 +2994,21 @@
             </div>
 
             <div class="intro-slide" hidden>
-              <img src="./static/figures/simulation.gif" alt="Illustrative simulation results" style="padding: 5%;" />
+              <img src="./static/figures/simulation.gif" alt="Illustrative concentration-time profiles" style="padding: 5%;" />
               <div class="intro-slide-caption">
                 <span>03 / 04</span>
-                <h3>Simulation</h3>
-                <p>Predict drug concentrations and responses under different conditions.</p>
+                <h3>Structural models</h3>
+                <p>Explore concentration-time profiles with one- and two-compartment models.</p>
               </div>
             </div>
 
             <div class="intro-slide" hidden>
-              <img src="./static/figures/population-pkpd.gif" alt="Illustrative population PK/PD modeling"
+              <img src="./static/figures/population-pkpd.gif" alt="Illustrative population PK modeling"
                 style="padding: 5%;" />
               <div class="intro-slide-caption">
                 <span>04 / 04</span>
-                <h3>Population PK/PD modeling</h3>
-                <p>Analyze drug concentrations and responses and explore variability between
-                  individuals.</p>
+                <h3>Population PK modeling</h3>
+                <p>Understand drug concentration-time profiles and variability between individuals.</p>
               </div>
             </div>
 
@@ -2949,9 +3017,9 @@
               <button type="button" data-slide="1" aria-pressed="false">
                 Model evaluation
               </button>
-              <button type="button" data-slide="2" aria-pressed="false"> Simulation </button>
+              <button type="button" data-slide="2" aria-pressed="false">Structural models</button>
               <button type="button" data-slide="3" aria-pressed="false">
-                Population PK/PD modeling
+                Population PK modeling
               </button>
             </div>
           </div>
@@ -2960,62 +3028,47 @@
       <section id="program" class="section program">
         <div class="wrap">
           <div class="section-title">
-            <div>
-              <p class="eyebrow">WORKSHOP PROGRAM</p>
-              <h2>From foundations to application. </h2>
-            </div>
-            <div class="program-top">
-              <div class="day-switch" role="tablist" aria-label="Workshop days"><button id="tab1" role="tab"
-                  aria-selected="true" aria-controls="day1" tabindex="0">Day 1</button><button id="tab2" role="tab"
-                  aria-selected="false" aria-controls="day2" tabindex="-1">Day 2</button>
-              </div>
+            <div><p class="eyebrow">WORKSHOP PROGRAM</p><h2>An introduction to population pharmacokinetics using RsNLME</h2></div>
+            <div class="day-switch" role="tablist" aria-label="Workshop days">
+              <button id="tab1" role="tab" aria-selected="true" aria-controls="day1" tabindex="0">Day 1</button>
+              <button id="tab2" role="tab" aria-selected="false" aria-controls="day2" tabindex="-1">Day 2</button>
             </div>
           </div>
           <div class="day-panel" id="day1" role="tabpanel" aria-labelledby="tab1" tabindex="0">
             <div class="agenda">
               <div class="agenda-intro"><span class="day-label">DAY 1 / MONDAY</span>
-                <div class="date-number">22 </div>
-                <div class="month">February 2027 </div>
-                <h3>Introduction to RsNLME </h3>
-                <p>Learn the fundamentals of RsNLME and its R workflow through hands-on modeling
-                  exercises.
-                </p>
+                <div class="date-number">22</div><div class="month">February 2027 · 09:00-17:00</div>
+                <h3>Population PK &amp; structural models</h3><p>Learn population methods, residual error and structural models, then build one- and two-compartment models.</p>
               </div>
-              <ol class="agenda-list">
-                <li><span>01</span><b>RsNLME overview and hands-on exercises</b> </li>
-                <li><span>02</span><b>Setting up and running NLME models in R</b> </li>
-                <li><span>03</span><b>Standard population pharmacokinetic (PK) models</b> </li>
-                <li><span>04</span><b>Handling below-the-limit-of-quantification (BLQ) data</b>
-                </li>
-                <li><span>05</span><b>Summarizing model results</b> </li>
-                <li><span>06</span><b>Model evaluation plots</b> </li>
-                <li><span>07</span><b>Visual predictive checks (VPCs)</b> </li>
+              <ol class="agenda-list agenda-timetable">
+                <li><span>09:00-10:00</span><b>Lecture 1: Introduction to population methods</b></li>
+                <li class="agenda-break"><span>10:00-10:30</span><b>Break</b></li>
+                <li><span>10:30-12:00</span><b>Hands-on 1: Residual error models</b></li>
+                <li class="agenda-break"><span>12:00-13:00</span><b>Lunch</b></li>
+                <li><span>13:00-15:00</span><b>Lecture 2: Building structural models</b></li>
+                <li class="agenda-break"><span>15:00-15:30</span><b>Break</b></li>
+                <li><span>15:30-17:00</span><b>Hands-on 2: One- and two-compartment models with first-order absorption or infusion</b></li>
               </ol>
             </div>
           </div>
           <div class="day-panel" id="day2" role="tabpanel" aria-labelledby="tab2" tabindex="0" hidden>
             <div class="agenda">
               <div class="agenda-intro"><span class="day-label">DAY 2 / TUESDAY</span>
-                <div class="date-number">23 </div>
-                <div class="month">February 2027 </div>
-                <h3>RsNLME <br />Advanced Workflow </h3>
-                <p>Extend your skills in the RsNLME R workflow through further exercises in
-                  modeling and analysis.
-                </p>
+                <div class="date-number">23</div><div class="month">February 2027 · 09:00-17:00</div>
+                <h3>Covariate models &amp; evaluation</h3><p>Build covariate models and evaluate results using parameter summaries, diagnostic plots and VPCs.</p>
               </div>
-              <ol class="agenda-list">
-                <li><span>01</span><b>Advanced exercises in the RsNLME R workflow</b> </li>
-                <li><span>02</span><b>Standard population PK/PD models</b> </li>
-                <li><span>03</span><b>Multiple-response models</b> </li>
-                <li><span>04</span><b>Simulation</b> </li>
-                <li><span>05</span><b>Bootstrap</b> </li>
-                <li><span>06</span><b>Stepwise covariate modeling (SCM)</b> </li>
+              <ol class="agenda-list agenda-timetable">
+                <li><span>09:00-10:00</span><b>Lecture 3: Building covariate models</b></li>
+                <li class="agenda-break"><span>10:00-10:30</span><b>Break</b></li>
+                <li><span>10:30-12:00</span><b>Hands-on 3: Covariate models</b></li>
+                <li class="agenda-break"><span>12:00-13:00</span><b>Lunch</b></li>
+                <li><span>13:00-15:00</span><b>Lecture 4: Model evaluation (diagnostic plots and VPCs)</b></li>
+                <li class="agenda-break"><span>15:00-15:30</span><b>Break</b></li>
+                <li><span>15:30-17:00</span><b>Hands-on 4: Parameter summary tables, diagnostic plots and VPCs</b></li>
               </ol>
             </div>
           </div>
-          <p class="program-note">The program and arrangements are subject to change. Detailed session times will be
-            announced later.
-          </p>
+          <p class="program-note">The program and arrangements are subject to change.</p>
         </div>
       </section>
       <section id="speakers" class="wrap section">
@@ -3135,14 +3188,13 @@
                   rel="noopener noreferrer">Official CNU parking information (Korean)</a>
               </div>
             </details>
-            <details>
-              <summary><strong>What to bring</strong> </summary>
-              <p>Please bring your own laptop with R and RStudio installed.<br />Practice
-                datasets, code and installation instructions will be provided later.</p>
-              <p><strong><a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">Install R</a>
-                  &nbsp; | &nbsp;
-                  <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener noreferrer">Install
-                    RStudio</a></strong></p>
+            <details open class="workshop-preparation"><summary><strong>Pre-workshop preparation</strong></summary>
+              <p><strong>Laptop and R</strong><br>Bring your own laptop with R installed. R 4.5.1 or later is recommended; earlier versions may not render all outputs as expected.</p>
+              <p><strong>Development environment</strong><br>You may use RStudio, Positron or basic RGui, according to your preference.</p>
+              <p><strong>Installation and test run</strong><br>An R script will be provided to install the required packages and dependencies. Check your RsNLME installation by completing the test run in the installation materials.</p>
+              <p><strong>Operating system</strong><br>RsNLME does not run on macOS, including when using a Windows emulator on macOS.</p>
+              <p><strong>Prior knowledge</strong><br>No prior experience with RsNLME or population methods is required. A working understanding of pharmacokinetics is desirable.</p>
+              <p><strong><a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">Install R</a> &nbsp; | &nbsp; <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener noreferrer">Install RStudio</a></strong></p>
             </details>
           </div>
         </div>
@@ -3242,8 +3294,7 @@
   <template id="content-ko">
     <header class="masthead">
       <div class="wrap nav"><a class="wordmark" href="#top"
-          aria-label="CNU Certara 워크숍 홈">CNU<span>×</span>Certara<small>WORKSHOP 2027</small></a><button
-          class="menu-button" aria-expanded="false" aria-controls="navigation">메뉴 +</button>
+          aria-label="CNU Certara 워크숍 홈">CNU<span>×</span>Certara<small>WORKSHOP 2027</small></a><button type="button" class="menu-button" aria-expanded="false" aria-controls="navigation" aria-label="메뉴 열기" title="메뉴"><span class="header-menu-icon" aria-hidden="true"></span><span class="header-control-label">메뉴</span></button>
         <nav class="navlinks" id="navigation" aria-label="주요 메뉴"><a href="#overview">행사 소개</a><a
             href="#program">프로그램</a><a href="#speakers">강사 소개</a><a href="#participation">참가 안내</a><a href="#contact">참가
             문의</a>
@@ -3255,7 +3306,7 @@
               <ellipse cx="12" cy="12" rx="4" ry="9" />
               <path d="M3 12h18" />
             </svg>
-            Language</button>
+            <span class="header-control-label">Language</span></button>
           <div class="language-options" id="language-options" hidden><a href="?lang=en" data-language="en"
               lang="en">English</a><a href="?lang=ko" data-language="ko" lang="ko">한국어</a>
           </div>
@@ -3277,7 +3328,7 @@
             </div>
             <h1><strong>RsNLME<br />Workshop <span>2027</span></strong>
             </h1>
-            <p class="hero-subtitle"><strong>R</strong> 기반 워크플로우로 배우는<br />집단 약동학·약력학(PK/PD) 모델링
+            <p class="hero-subtitle"><strong>R</strong> 기반 워크플로우로 배우는<br />집단 약동학(PK) 모델링
             </p>
             <div class="hero-meta"><b>2027년 2월 22–23일</b><span class="bar"></span><span>실습 중심 교육</span>
             </div>
@@ -3341,13 +3392,13 @@
           <div class="fact"><small>행사 일정</small><strong>2027년 2월 22–23일</strong>
             <p>월요일 · 화요일 </p>
           </div>
-          <div class="fact"><small>교육 주제</small><strong>집단 PK/PD 모델링 · RsNLME</strong>
+          <div class="fact"><small>교육 주제</small><strong>집단 PK 모델링 · RsNLME</strong>
             <p>R 워크플로우 및 실습 </p>
           </div>
           <div class="fact">
             <small>모집 인원</small>
             <strong>50명</strong>
-            <p>집단 PK/PD 모델링에 관심 있는 국내외 연구자 및 학생</p>
+            <p>집단 PK 모델링에 관심 있는 국내외 연구자 및 학생</p>
           </div>
         </div>
       </section>
@@ -3357,8 +3408,7 @@
           <h2>모델을 구축하고,<br />이해를 넓히는 시간. </h2>
           <br />
           <p><strong>CNU–Certara RsNLME 워크숍</strong>은 실습 중심 교육 프로그램입니다. <br />R
-            에서 비선형 혼합효과(NLME) 모델을 설정하고 실행하는 기초부터 모델 평가, 시뮬레이션,
-            PK/PD 모델링 심화 과정까지 단계적으로 다룹니다.
+            에서 RsNLME를 활용한 집단 약동학의 기초부터 잔차 오차·구조·공변량 모델 구축, 모델 평가와 결과 해석까지 단계적으로 다룹니다.
           </p>
         </div>
         <div>
@@ -3382,29 +3432,29 @@
             </div>
 
             <div class="intro-slide" hidden>
-              <img src="./static/figures/simulation.gif" alt="시뮬레이션 결과 예시" style="padding: 5%;" />
+              <img src="./static/figures/simulation.gif" alt="농도-시간 곡선 예시" style="padding: 5%;" />
               <div class="intro-slide-caption">
                 <span>03 / 04</span>
-                <h3>시뮬레이션</h3>
-                <p>다양한 조건에서 약물의 농도와 반응을 예측합니다.</p>
+                <h3>구조 모델</h3>
+                <p>1·2구획 모델로 약물의 농도-시간 양상을 이해합니다.</p>
               </div>
             </div>
 
             <div class="intro-slide" hidden>
-              <img src="./static/figures/population-pkpd.gif" alt="집단 PK/PD 모델링 예시" style="padding: 5%;" />
+              <img src="./static/figures/population-pkpd.gif" alt="집단 PK 모델링 예시" style="padding: 5%;" />
               <div class="intro-slide-caption">
                 <span>04 / 04</span>
-                <h3>집단 PK/PD 모델링</h3>
-                <p>약물의 농도와 반응을 분석하고 개인 간 차이를 이해합니다.</p>
+                <h3>집단 PK 모델링</h3>
+                <p>약물의 농도-시간 양상과 개인 간 차이를 이해합니다.</p>
               </div>
             </div>
 
             <div class="intro-carousel-controls" aria-label="교육 주제 선택">
               <button type="button" data-slide="0" aria-pressed="true"> 기초 교육 </button>
               <button type="button" data-slide="1" aria-pressed="false"> 모델 평가 </button>
-              <button type="button" data-slide="2" aria-pressed="false"> 시뮬레이션 </button>
+              <button type="button" data-slide="2" aria-pressed="false">구조 모델</button>
               <button type="button" data-slide="3" aria-pressed="false">
-                집단 PK/PD 모델링
+                집단 PK 모델링
               </button>
             </div>
           </div>
@@ -3413,60 +3463,47 @@
       <section id="program" class="section program">
         <div class="wrap">
           <div class="section-title">
-            <div>
-              <p class="eyebrow">교육 프로그램</p>
-              <h2>기초부터 응용까지, 단계적으로. </h2>
-            </div>
-            <div class="program-top">
-              <div class="day-switch" role="tablist" aria-label="교육 일자"><button id="tab1" role="tab"
-                  aria-selected="true" aria-controls="day1" tabindex="0">1일차</button><button id="tab2" role="tab"
-                  aria-selected="false" aria-controls="day2" tabindex="-1">2일차</button>
-              </div>
+            <div><p class="eyebrow">교육 프로그램</p><h2>RsNLME를 활용한 집단 약동학 입문</h2></div>
+            <div class="day-switch" role="tablist" aria-label="교육 일자">
+              <button id="tab1" role="tab" aria-selected="true" aria-controls="day1" tabindex="0">1일차</button>
+              <button id="tab2" role="tab" aria-selected="false" aria-controls="day2" tabindex="-1">2일차</button>
             </div>
           </div>
           <div class="day-panel" id="day1" role="tabpanel" aria-labelledby="tab1" tabindex="0">
             <div class="agenda">
               <div class="agenda-intro"><span class="day-label">1일차 / 월요일</span>
-                <div class="date-number">22 </div>
-                <div class="month">2027년 2월 </div>
-                <h3>RsNLME 입문 </h3>
-                <p>RsNLME의 기본 개념과 R 워크플로우를 익히고, 실습을 통해 모델링의 기초를
-                  다집니다.
-                </p>
+                <div class="date-number">22</div><div class="month">2027년 2월 · 09:00-17:00</div>
+                <h3>집단 약동학 및 구조 모델</h3><p>집단 모델링의 기초부터 잔차 오차와 구조 모델을 배우고, 1·2구획 모델을 직접 구축합니다.</p>
               </div>
-              <ol class="agenda-list">
-                <li><span>01</span><b>RsNLME 개요 및 실습</b> </li>
-                <li><span>02</span><b>R을 이용한 NLME 모델 설정 및 실행</b> </li>
-                <li><span>03</span><b>표준 집단 약동학(PK) 모델</b> </li>
-                <li><span>04</span><b>정량한계 미만(BLQ) 자료 처리</b> </li>
-                <li><span>05</span><b>모델 결과 요약</b> </li>
-                <li><span>06</span><b>모델 평가 그래프</b> </li>
-                <li><span>07</span><b>시각적 예측 검증(VPC)</b> </li>
+              <ol class="agenda-list agenda-timetable">
+                <li><span>09:00-10:00</span><b>강의 1: 집단 모델링 방법론 소개</b></li>
+                <li class="agenda-break"><span>10:00-10:30</span><b>휴식</b></li>
+                <li><span>10:30-12:00</span><b>실습 1: 잔차 오차 모델</b></li>
+                <li class="agenda-break"><span>12:00-13:00</span><b>점심</b></li>
+                <li><span>13:00-15:00</span><b>강의 2: 구조 모델 구축</b></li>
+                <li class="agenda-break"><span>15:00-15:30</span><b>휴식</b></li>
+                <li><span>15:30-17:00</span><b>실습 2: 일차 흡수 또는 주입을 적용한 1·2구획 모델</b></li>
               </ol>
             </div>
           </div>
           <div class="day-panel" id="day2" role="tabpanel" aria-labelledby="tab2" tabindex="0" hidden>
             <div class="agenda">
               <div class="agenda-intro"><span class="day-label">2일차 / 화요일</span>
-                <div class="date-number">23 </div>
-                <div class="month">2027년 2월 </div>
-                <h3>RsNLME <br />워크플로우 심화 </h3>
-                <p>추가 실습을 통해 RsNLME의 R 워크플로우를 심화 학습하고, 다양한 모델링 및 분석
-                  기법을 다룹니다.
-                </p>
+                <div class="date-number">23</div><div class="month">2027년 2월 · 09:00-17:00</div>
+                <h3>공변량 모델 및 모델 평가</h3><p>공변량 모델을 구축하고, 진단 그래프와 VPC를 활용해 모델을 평가하고 결과를 해석합니다.</p>
               </div>
-              <ol class="agenda-list">
-                <li><span>01</span><b>RsNLME의 R 워크플로우 심화 실습</b> </li>
-                <li><span>02</span><b>표준 집단 약동학·약력학(PK/PD) 모델</b> </li>
-                <li><span>03</span><b>다중 반응 모델</b> </li>
-                <li><span>04</span><b>시뮬레이션</b> </li>
-                <li><span>05</span><b>부트스트랩(Bootstrap)</b> </li>
-                <li><span>06</span><b>단계적 공변량 모델링(SCM)</b> </li>
+              <ol class="agenda-list agenda-timetable">
+                <li><span>09:00-10:00</span><b>강의 3: 공변량 모델 구축</b></li>
+                <li class="agenda-break"><span>10:00-10:30</span><b>휴식</b></li>
+                <li><span>10:30-12:00</span><b>실습 3: 공변량 모델</b></li>
+                <li class="agenda-break"><span>12:00-13:00</span><b>점심</b></li>
+                <li><span>13:00-15:00</span><b>강의 4: 모델 평가 — 진단 그래프 및 시각적 예측 검증(VPC)</b></li>
+                <li class="agenda-break"><span>15:00-15:30</span><b>휴식</b></li>
+                <li><span>15:30-17:00</span><b>실습 4: 파라미터 요약표, 진단 그래프 및 VPC</b></li>
               </ol>
             </div>
           </div>
-          <p class="program-note">프로그램 및 운영 사항은 변경될 수 있으며, 세부 시간표는 추후 안내됩니다.
-          </p>
+          <p class="program-note">프로그램 및 운영 사항은 변경될 수 있습니다.</p>
         </div>
       </section>
       <section id="speakers" class="wrap section">
@@ -3573,14 +3610,13 @@
                   rel="noopener noreferrer">충남대학교 공식 주차 안내</a>
               </div>
             </details>
-            <details>
-              <summary><strong>참가자 준비 사항</strong> </summary>
-              <p>워크숍 참가자는 R과 RStudio가 설치된 개인 노트북을 지참해야 합니다.<br />실습용
-                데이터와 코드, 설치 안내는 추후 안내할 예정입니다.</p>
-              <p><strong><a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R 설치 안내</a>
-                  &nbsp; | &nbsp;
-                  <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener noreferrer">RStudio
-                    설치 안내</a></strong></p>
+            <details open class="workshop-preparation"><summary><strong>참가 전 준비사항</strong></summary>
+              <p><strong>개인 노트북 및 R</strong><br>개인 노트북을 지참해 주세요. R 4.5.1 이상 설치를 권장합니다. 이전 버전은 일부 출력이 예상과 다르게 표시될 수 있습니다.</p>
+              <p><strong>개발 환경</strong><br>RStudio, Positron 또는 기본 RGui 중 편한 환경을 사용할 수 있습니다.</p>
+              <p><strong>설치 및 사전 테스트</strong><br>필요한 패키지와 의존성을 설치할 수 있는 R 스크립트를 제공할 예정입니다. 설치 자료에 포함된 테스트 실행으로 RsNLME가 정상적으로 작동하는지 확인해 주세요.</p>
+              <p><strong>운영체제 안내</strong><br>RsNLME는 macOS에서 실행할 수 없습니다. macOS에서 Windows 에뮬레이터를 사용하는 경우에도 지원되지 않습니다.</p>
+              <p><strong>사전 지식</strong><br>RsNLME 및 집단 모델링 경험은 필수가 아닙니다. 약동학의 기본적인 이해를 권장합니다.</p>
+              <p><strong><a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R 설치 안내</a> &nbsp; | &nbsp; <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener noreferrer">RStudio 설치 안내</a></strong></p>
             </details>
           </div>
         </div>
@@ -3685,12 +3721,12 @@
       en: {
         title: 'CNU–Certara RsNLME Workshop 2027',
         description:
-          'February 22–23, 2027. A two-day hands-on workshop on population PK/PD modeling and the R workflow for RsNLME.',
+          'February 22–23, 2027. A two-day hands-on workshop on population PK modeling and the R workflow for RsNLME.',
       },
       ko: {
         title: 'CNU–Certara RsNLME 워크숍 2027 | 한국어',
         description:
-          '2027년 2월 22~23일, R 기반 RsNLME를 활용한 집단 약동학·약력학 모델링 실습 워크숍.',
+          '2027년 2월 22~23일, R 기반 RsNLME를 활용한 집단 약동학 모델링 실습 워크숍.',
       },
     };
     let language = 'en';
@@ -3718,6 +3754,7 @@
       const languageButton = page.querySelector('.language-button');
       const options = page.querySelector('.language-options');
       if (event.target.closest('.language-button')) {
+        setMenu(false);
         options.hidden = !options.hidden;
         languageButton.setAttribute('aria-expanded', String(!options.hidden));
       } else {
@@ -3728,7 +3765,7 @@
       const nav = page.querySelector('.navlinks');
       if (event.target.closest('.menu-button')) {
         setMenu(menu.getAttribute('aria-expanded') !== 'true');
-      } else if (event.target.closest('.navlinks a')) {
+      } else if (event.target.closest('.navlinks a') || !event.target.closest('.masthead')) {
         setMenu(false);
       }
       const tab = event.target.closest('[role="tab"]');
@@ -3738,8 +3775,11 @@
     function setMenu(open) {
       page.querySelector('.menu-button').setAttribute('aria-expanded', String(open));
       page.querySelector('.navlinks').classList.toggle('open', open);
-      page.querySelector('.menu-button').textContent =
-        language === 'ko' ? (open ? '닫기 −' : '메뉴 +') : open ? 'Close −' : 'Menu +';
+      const menuButton = page.querySelector('.menu-button');
+      menuButton.querySelector('.header-control-label').textContent =
+        language === 'ko' ? (open ? '닫기' : '메뉴') : open ? 'Close' : 'Menu';
+      menuButton.setAttribute('aria-label', language === 'ko'
+        ? (open ? '메뉴 닫기' : '메뉴 열기') : (open ? 'Close menu' : 'Open menu'));
     }
 
     document.addEventListener('keydown', (event) => {
@@ -3747,6 +3787,10 @@
       const options = page.querySelector('.language-options');
       const links = [...options.querySelectorAll('a')];
       const inPicker = event.target.closest('.language-picker');
+      if (event.key === 'Escape' && page.querySelector('.menu-button').getAttribute('aria-expanded') === 'true') {
+        setMenu(false);
+        page.querySelector('.menu-button').focus();
+      }
       if (inPicker && event.key === 'Escape') {
         options.hidden = true;
         button.setAttribute('aria-expanded', 'false');
